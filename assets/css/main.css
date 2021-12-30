@@ -2087,7 +2087,7 @@ input, select, textarea {
 		padding: 0 2rem;
 		text-align: center;
 		text-decoration: none;
-		text-transform: uppercase;
+		text-transform: none;
 		white-space: nowrap;
 	}
 
@@ -3697,7 +3697,7 @@ input, select, textarea {
 			list-style: none;
 			margin-bottom: 0;
 			padding-left: 0;
-			text-transform: uppercase;
+			text-transform: none;
 		}
 
 			#nav ul.links li {
