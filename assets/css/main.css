@@ -198,7 +198,7 @@ input, select, textarea {
 	h1 {
 		font-size: 4rem;
 		line-height: 1.1;
-		margin: 0 0 2rem 0;
+		margin: 2rem 0 2rem 0;
 	}
 
 	h2 {
@@ -2657,6 +2657,10 @@ input, select, textarea {
 				margin: 2rem 0;
 			}
 
+		}
+
+		.image.round {
+			border-radius: 50%;
 		}
 
 /* Round image */
