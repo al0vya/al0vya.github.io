@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Option pricing under power laws &#8212; Optioning pricing under fat tails</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Subexponential and power laws" href="5-subexponentials-and-power-laws.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Optioning pricing under fat tails</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-about.html">
+   Option pricing under fat tails
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-mildly-fat-tails.html">
+   Mildly fat tails
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2-mean-absolute-deviation.html">
+   Mean absolute deviation (MAD)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-central-limit-theorem.html">
+   Central limit theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-law-of-large-numbers.html">
+   Law of large numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-subexponentials-and-power-laws.html">
+   Subexponential and power laws
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Option pricing under power laws
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/6-option-pricing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/6-option-pricing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#karamata-point">
+   Karamata point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-basics">
+   Option basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#call-option-case">
+     Call option case
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#put-option-case">
+     Put option case
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calibrating-alpha">
+   Calibrating
+   <span class="math notranslate nohighlight">
+    \(\alpha\)
+   </span>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bitcoin-prices">
+     Bitcoin prices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pricing-bitcoin-options">
+   Pricing bitcoin options
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="option-pricing-under-power-laws">
+<h1>Option pricing under power laws<a class="headerlink" href="#option-pricing-under-power-laws" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="karamata-point">
+<h2>Karamata point<a class="headerlink" href="#karamata-point" title="Permalink to this headline">¶</a></h2>
+<p>The Karamata point <span class="math notranslate nohighlight">\(l\)</span> of a power law survival function <span class="math notranslate nohighlight">\(L(x)x^{-\alpha}\)</span> is the point beyond which the strong Pareto law holds i.e. <span class="math notranslate nohighlight">\(L(x) = \text{constant}, x &gt; l\)</span>.</p>
+</div>
+<div class="section" id="option-basics">
+<h2>Option basics<a class="headerlink" href="#option-basics" title="Permalink to this headline">¶</a></h2>
+<p>Strike price <span class="math notranslate nohighlight">\(K\)</span>: price at which one can buy/sell call/put upon exercising the option, respectively.</p>
+<p>Underlying price <span class="math notranslate nohighlight">\(S\)</span>: price of the underlying asset, for example a stock.</p>
+<p>Contract price <span class="math notranslate nohighlight">\(C(K)\)</span>: price of a call as a function of the strike price <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<p>Contract price <span class="math notranslate nohighlight">\(P(K)\)</span>: price of a put as a function of the strike price <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<div class="section" id="call-option-case">
+<h3>Call option case<a class="headerlink" href="#call-option-case" title="Permalink to this headline">¶</a></h3>
+<p>Consider a European call option with strike price <span class="math notranslate nohighlight">\(K\)</span>. Assume that the underlying asset’s price <span class="math notranslate nohighlight">\(S\)</span> follows some probability measure <span class="math notranslate nohighlight">\(P\)</span>, then <span class="math notranslate nohighlight">\(\mathbb{E}_p[S - K] = \int_K^\infty (S - K) dP \; (1)\)</span>.</p>
+<p>Assume the underlying asset price <span class="math notranslate nohighlight">\(S\)</span> has a power law survival function. Assuming the option’s strike price <span class="math notranslate nohighlight">\(K &gt; l\)</span> i.e. lies beyond the Karamata point and a strong Pareto law holds, then substituting the survival function into equation (1) gives</p>
+<p><span class="math notranslate nohighlight">\(C(K) = \frac{K^{1-\alpha}l^{\alpha}}{\alpha - 1}, K \gt l \; (2)\)</span></p>
+<p>Let us say that <span class="math notranslate nohighlight">\(\alpha\)</span> is from fitting data or from experience. Now what we need is a value for <span class="math notranslate nohighlight">\(l\)</span>.</p>
+<p>Consider a reference “tail” option with contract price <span class="math notranslate nohighlight">\(C_1\)</span> and strike price <span class="math notranslate nohighlight">\(K_1\)</span>. Substituting into equation (2) and re-arranging for <span class="math notranslate nohighlight">\(l\)</span> gives</p>
+<p><span class="math notranslate nohighlight">\(l = \big(\frac{(\alpha - 1)C_1}{K_1^{1-\alpha}}\big)^{1/\alpha}\)</span>.</p>
+<p>Separately, we can get a relative pricing mechanism using the “tail” option strike price <span class="math notranslate nohighlight">\(K_1\)</span> in</p>
+<p><span class="math notranslate nohighlight">\(C(K_2) = C_1\big(\frac{K_1}{K_2}\big)^{1-\alpha}, K_2, K_1 \gt l\)</span></p>
+<p>Now, instead of the underlying asset price <span class="math notranslate nohighlight">\(S\)</span>, consider the geomtric return <span class="math notranslate nohighlight">\(r = \frac{S - S_0}{S}\)</span>, where <span class="math notranslate nohighlight">\(S_0\)</span> is the initial price of the underlying asset, hence <span class="math notranslate nohighlight">\(S = (1 + r)S_0\)</span>. <span class="math notranslate nohighlight">\(r\)</span> follows a power law survival function <span class="math notranslate nohighlight">\(r(K)\)</span> with Karamata point <span class="math notranslate nohighlight">\(r_l\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(r(K) = \big(\frac{K - S_0}{r_l S_0}\big)^{-\alpha}, K \gt S_0(1 + r_l)\)</span>,</p>
+<p>allowing to obtain the relative pricing mechanism</p>
+<p><span class="math notranslate nohighlight">\(C(K_2) = C_1\big(\frac{K_1 - S_0}{K_2 - S_0}\big)^{1-\alpha}, K_2, K_1 \gt S_0(1 + r_l)\)</span>.</p>
+</div>
+<div class="section" id="put-option-case">
+<h3>Put option case<a class="headerlink" href="#put-option-case" title="Permalink to this headline">¶</a></h3>
+<p>We do similar things for put options with, but <span class="math notranslate nohighlight">\(S = (1 - r)S_0\)</span> and <span class="math notranslate nohighlight">\(r \gt r_l &gt; 0\)</span> where <span class="math notranslate nohighlight">\(r\)</span> is Pareto distributed in the positive domain and <span class="math notranslate nohighlight">\(r_l\)</span> is the Karamata point, giving</p>
+<p><span class="math notranslate nohighlight">\(P(K_2) = P_1 \frac{\beta((\alpha - 1)K_2 + S_0) - (K_2 - S_0)^{1 - \alpha}}{\beta((\alpha - 1)K_1 + S_0) - (K_1 - S_0)^{1 - \alpha}}\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(\beta = -1^{1-\alpha}S_0^{-\alpha}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span>  <span class="k">as</span> <span class="nn">pylab</span>  
+
+<span class="kn">import</span> <span class="nn">numpy</span>  <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;legend.fontsize&quot;</span> <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;axes.labelsize&quot;</span>  <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;axes.titlesize&quot;</span>  <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;xtick.labelsize&quot;</span> <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ytick.labelsize&quot;</span> <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span>
+<span class="p">}</span>
+
+<span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">call_price</span><span class="p">(</span>
+        <span class="n">K2</span><span class="p">,</span>
+        <span class="n">K1</span><span class="p">,</span>
+        <span class="n">S0</span><span class="p">,</span>
+        <span class="n">C1</span><span class="p">,</span>
+        <span class="n">a</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="n">C1</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">K2</span> <span class="o">-</span> <span class="n">S0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">K1</span> <span class="o">-</span> <span class="n">S0</span><span class="p">)</span> <span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">put_price</span><span class="p">(</span>
+        <span class="n">K2</span><span class="p">,</span>
+        <span class="n">K1</span><span class="p">,</span>
+        <span class="n">S0</span><span class="p">,</span>
+        <span class="n">P1</span><span class="p">,</span>
+        <span class="n">a</span>
+    <span class="p">):</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="p">(</span> <span class="n">S0</span> <span class="o">**</span> <span class="o">-</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">K2</span> <span class="o">+</span> <span class="n">S0</span> <span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">K2</span> <span class="o">-</span> <span class="n">S0</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="p">)</span>
+        <span class="c1">#   ------------------------------------------------------------</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="p">(</span> <span class="n">S0</span> <span class="o">**</span> <span class="o">-</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">K1</span> <span class="o">+</span> <span class="n">S0</span> <span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">K1</span> <span class="o">-</span> <span class="n">S0</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">P1</span> <span class="o">*</span> <span class="n">A</span> <span class="o">/</span> <span class="n">B</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calibrating-alpha">
+<h2>Calibrating <span class="math notranslate nohighlight">\(\alpha\)</span><a class="headerlink" href="#calibrating-alpha" title="Permalink to this headline">¶</a></h2>
+<p>We should make log-log plots of the survival function of the price of underlying asset <span class="math notranslate nohighlight">\(S(x)\)</span> to see whether it follows a power law. If it does, we can calibrate the <span class="math notranslate nohighlight">\(\alpha\)</span> for use in the option pricing formulae. We will do the calibration in the function <code class="docutils literal notranslate"><span class="pre">check_power_law</span></code> by plotting power laws with <span class="math notranslate nohighlight">\(\alpha = 2,\ 3,\ 4,\ 5\)</span> and eyeballing where <span class="math notranslate nohighlight">\(S(x)\)</span> falls.</p>
+<div class="section" id="bitcoin-prices">
+<h3>Bitcoin prices<a class="headerlink" href="#bitcoin-prices" title="Permalink to this headline">¶</a></h3>
+<p>We choose to calibrate the <span class="math notranslate nohighlight">\(\alpha\)</span> for bitcoin prices as price data for bitcoin are readily available. The data are manually retrieved online and then saved in a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file. The name of the file including the extension must be inputted into the function <code class="docutils literal notranslate"><span class="pre">check_power_law</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check_power_law</span><span class="p">(</span>
+        <span class="n">filename</span><span class="p">,</span>
+        <span class="n">write</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        
+        <span class="n">bins</span> <span class="o">=</span> <span class="mi">100</span>
+        
+        <span class="n">data_hist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+        
+        <span class="n">data_cdf</span>         <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span> <span class="n">data_hist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="n">data</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">data_bin_centres</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">data_hist</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">data_hist</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span> <span class="p">]</span>
+        
+        <span class="c1"># note: scipy.stats.pareto.sf(b=b) is alpha=b+1</span>
+        <span class="c1"># see https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pareto.html</span>
+        <span class="n">Fbar_pareto_2</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pareto</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">Fbar_pareto_3</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pareto</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">Fbar_pareto_4</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pareto</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">Fbar_pareto_5</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pareto</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">write</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;survival-function.csv&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;data,sf</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="p">[</span> <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">sf</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">data_cdf</span><span class="p">)</span> <span class="p">]</span>
+        
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">data_cdf</span><span class="p">,</span>  <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">Fbar_pareto_2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\alpha = 2$&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">Fbar_pareto_3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\alpha = 3$&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">Fbar_pareto_4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\alpha = 4$&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">Fbar_pareto_5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\alpha = 5$&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+        
+<span class="n">check_power_law</span><span class="p">(</span><span class="s2">&quot;BTC-USD.csv&quot;</span><span class="p">,</span> <span class="n">write</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_8064</span><span class="o">/</span><span class="mf">1938047345.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span>         <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span> 
+<span class="ne">---&gt; </span><span class="mi">35</span> <span class="n">check_power_law</span><span class="p">(</span><span class="s2">&quot;BTC-USD.csv&quot;</span><span class="p">,</span> <span class="n">write</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nn">~\AppData\Local\Temp/ipykernel_8064/1938047345.py</span> in <span class="ni">check_power_law</span><span class="nt">(filename, write)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="c1"># note: scipy.stats.pareto.sf(b=b) is alpha=b+1</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>         <span class="c1"># see https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pareto.html</span>
+<span class="ne">---&gt; </span><span class="mi">16</span>         <span class="n">Fbar_pareto_2</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pareto</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>         <span class="n">Fbar_pareto_3</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pareto</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">Fbar_pareto_4</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pareto</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">data_bin_centres</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: module &#39;scipy&#39; has no attribute &#39;stats&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pricing-bitcoin-options">
+<h2>Pricing bitcoin options<a class="headerlink" href="#pricing-bitcoin-options" title="Permalink to this headline">¶</a></h2>
+<p>We are not sure if the survival function of the price data has been correctly obtained and hence if the log-log plots of the survival function are correct. Nonetheless, we calibrate an <span class="math notranslate nohighlight">\(\alpha\)</span> using the plot as an exercise.</p>
+<p>The plot shows gaps of 1 in the <span class="math notranslate nohighlight">\(\alpha\)</span> of the Pareto distributions, so calibrate the <span class="math notranslate nohighlight">\(\alpha\)</span> of bitcoin to be around <span class="math notranslate nohighlight">\(1.3\)</span>. The function <code class="docutils literal notranslate"><span class="pre">price_options</span></code> uses this <span class="math notranslate nohighlight">\(\alpha\)</span> to price theoretical bitcoin options.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">price_options</span><span class="p">():</span>
+    <span class="c1"># from calibration</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mf">1.3</span>
+    
+    <span class="c1"># price of BTC as of 2021/12/29 ( happy new year :) )</span>
+    <span class="n">S0</span> <span class="o">=</span> <span class="mf">34587.55</span>
+    
+    <span class="c1"># for calls</span>
+    <span class="n">K1_c</span> <span class="o">=</span> <span class="mi">34000</span> <span class="c1"># strike price of &quot;tail&quot; call option</span>
+    <span class="n">C1_c</span> <span class="o">=</span> <span class="mi">33000</span> <span class="c1"># contract price of tail call option</span>
+    <span class="n">K2_c</span> <span class="o">=</span> <span class="p">[</span> <span class="n">K2</span> <span class="k">for</span> <span class="n">K2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30000</span><span class="p">,</span> <span class="n">K1_c</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="p">]</span>
+    <span class="n">C</span>    <span class="o">=</span> <span class="p">[</span><span class="n">call_price</span><span class="p">(</span><span class="n">K2</span><span class="p">,</span> <span class="n">K1_c</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">C1_c</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">K2</span> <span class="ow">in</span> <span class="n">K2_c</span><span class="p">]</span>
+    
+    <span class="c1"># for puts</span>
+    <span class="n">K1_p</span> <span class="o">=</span> <span class="mi">30000</span> <span class="c1"># strike price of &quot;tail&quot; put option</span>
+    <span class="n">P1_p</span> <span class="o">=</span> <span class="mi">33000</span> <span class="c1"># contract price of tail put option</span>
+    <span class="n">K2_p</span> <span class="o">=</span> <span class="p">[</span> <span class="n">K2</span> <span class="k">for</span> <span class="n">K2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K1_p</span><span class="p">,</span> <span class="mi">26000</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span> <span class="p">]</span>
+    <span class="n">P</span>    <span class="o">=</span> <span class="p">[</span><span class="n">put_price</span><span class="p">(</span><span class="n">K2</span><span class="p">,</span> <span class="n">K1_p</span><span class="p">,</span> <span class="n">S0</span><span class="p">,</span> <span class="n">P1_p</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">K2</span> <span class="ow">in</span> <span class="n">K2_p</span><span class="p">]</span>
+    
+    <span class="c1"># plots</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">3.5</span><span class="p">)</span>
+    
+    <span class="n">xlim_c</span> <span class="o">=</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">K2_c</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">K2_c</span><span class="p">)</span> <span class="p">)</span>
+    <span class="n">xlim_p</span> <span class="o">=</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">K2_p</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">K2_p</span><span class="p">)</span> <span class="p">)</span>
+    
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K2_c</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K2_p</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Strike price&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Call price&quot;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="n">xlim_c</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Strike price&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Put price&quot;</span><span class="p">,</span>  <span class="n">xlim</span><span class="o">=</span><span class="n">xlim_p</span><span class="p">)</span>
+    
+<span class="n">price_options</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6-option-pricing_7_0.png" src="_images/6-option-pricing_7_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="5-subexponentials-and-power-laws.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Subexponential and power laws</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Alovya Chowdhury<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

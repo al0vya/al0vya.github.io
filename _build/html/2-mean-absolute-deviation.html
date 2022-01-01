@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mean absolute deviation (MAD) &#8212; Optioning pricing under fat tails</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Central limit theorem" href="3-central-limit-theorem.html" />
+    <link rel="prev" title="Mildly fat tails" href="1-mildly-fat-tails.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Optioning pricing under fat tails</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0-about.html">
+   Option pricing under fat tails
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-mildly-fat-tails.html">
+   Mildly fat tails
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Mean absolute deviation (MAD)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3-central-limit-theorem.html">
+   Central limit theorem
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4-law-of-large-numbers.html">
+   Law of large numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5-subexponentials-and-power-laws.html">
+   Subexponential and power laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6-option-pricing.html">
+   Option pricing under power laws
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/2-mean-absolute-deviation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/2-mean-absolute-deviation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-use-mad-efficiency">
+   Why use MAD: efficiency
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efficiency-for-a-normal-distribution">
+   Efficiency for a normal distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efficiency-for-progressively-fatter-tail-distributions">
+   Efficiency for progressively fatter tail distributions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="mean-absolute-deviation-mad">
+<h1>Mean absolute deviation (MAD)<a class="headerlink" href="#mean-absolute-deviation-mad" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="why-use-mad-efficiency">
+<h2>Why use MAD: efficiency<a class="headerlink" href="#why-use-mad-efficiency" title="Permalink to this headline">¶</a></h2>
+<p>The mean absolute deviation MAD is a more intuitive measure of deviation than the standard deviation STD as follows:</p>
+<p><span class="math notranslate nohighlight">\(\text{MAD} = \frac{1}{n} \sum_{i=1}^{n} \lvert x_i - \overline{x} \rvert\)</span>.</p>
+<p>MAD is more “efficient” than STD. Efficient here means that MAD varies less than STD. For example, say we take N samples and compute the MAD and STD. We can take N samples M times and compute the MAD and STD each time. We would end up with an array of MADs and STDs of length M.</p>
+<pre>
+1 : (1, 2, 3, ... N) -> compute -> (MAD) (STD)
+2 : (1, 2, 3, ... N) -> compute -> (MAD) (STD)  
+. .          .             .         .     .
+. .          .             .         .     .
+. .          .             .         .     .
+M : (1, 2, 3, ... N) -> compute -> (MAD) (STD)
+</pre>
+<p>Then we can calculate the variance of MAD and STD. The lower the variance the better, as a lower variance implies the computed MAD or STD varies less across the M sample sets.</p>
+<p>Consider taking a ratio between the variances of the STDs vs the MADs:</p>
+<p><span class="math notranslate nohighlight">\(\text{efficiency} = \frac{\text{variance}_{STD}}{\text{variance}_{MAD}}\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(\text{efficiency} &gt; 1\)</span> implies MAD is more efficient.</p>
+<p>The efficiency is computed using</p>
+<p><span class="math notranslate nohighlight">\(\text{efficiency} = \frac{\text{variance}_{STD}}{\text{mean}_{STD}} / \frac{\text{variance}_{MAD}}{\text{mean}_{MAD}}\)</span>,</p>
+<p>where the means are used to normalise the variances.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pylab</span>  <span class="k">as</span> <span class="nn">pylab</span>  
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span>
+
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;legend.fontsize&quot;</span> <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;axes.labelsize&quot;</span>  <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;axes.titlesize&quot;</span>  <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;xtick.labelsize&quot;</span> <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ytick.labelsize&quot;</span> <span class="p">:</span> <span class="s2">&quot;xx-large&quot;</span>
+<span class="p">}</span>
+
+<span class="n">pylab</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mad</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    
+    <span class="n">absolute_deviations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">absolute_deviations</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_efficiency</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">two_norms</span><span class="p">(</span>
+        <span class="n">num_samples</span><span class="p">,</span>
+        <span class="n">a</span><span class="p">,</span>           <span class="c1"># parameter controlling STD of high STD normal distribution</span>
+        <span class="n">p</span>            <span class="c1"># sampling frequency from high STD normal distribution</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This function samples from two different normal distributions, one with STD = 1 and</span>
+<span class="sd">        another with STD = sqrt(1 + a).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">mean</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="n">sigma_norm</span>  <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">sigma_spike</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">a</span>
+        
+        <span class="n">X_norm</span>  <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma_norm</span><span class="p">,</span>  <span class="n">size</span><span class="o">=</span><span class="n">num_samples</span><span class="p">)</span>
+        <span class="n">X_spike</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma_spike</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_samples</span><span class="p">)</span>
+        
+        <span class="n">i</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">num_samples</span><span class="p">)</span>
+        
+        <span class="n">X</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">X_norm</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">X_spike</span>
+        
+        <span class="k">return</span> <span class="n">X</span>
+    
+<span class="k">def</span> <span class="nf">get_efficiency_sample</span><span class="p">(</span>
+        <span class="n">a</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># assume purely Gaussian case by default</span>
+        <span class="n">p</span><span class="o">=</span><span class="mi">0</span>  <span class="c1"># never sample from high STD distribution by default</span>
+    <span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    When using our samples, the MAD and STD can respectively differ depending on the samples.</span>
+<span class="sd">    </span>
+<span class="sd">    That is, the MAD/STD of our samples will differ each time we compute them.</span>
+<span class="sd">    </span>
+<span class="sd">    Therefore, we need to compute an array of MADs/STDs using several sets of samples.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">num_samples</span>         <span class="o">=</span> <span class="mi">1_000</span> <span class="c1"># number of samples per set</span>
+    <span class="n">num_sets_of_samples</span> <span class="o">=</span> <span class="mi">10_000</span>  <span class="c1"># number of sets of samples</span>
+    
+    <span class="n">sets_of_samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">two_norms</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">sample_set</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sets_of_samples</span><span class="p">)]</span>
+    
+    <span class="n">stds</span> <span class="o">=</span> <span class="p">[</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">tstd</span><span class="p">(</span><span class="n">sample_set</span><span class="p">)</span> <span class="k">for</span> <span class="n">sample_set</span> <span class="ow">in</span> <span class="n">sets_of_samples</span><span class="p">]</span>
+    <span class="n">mads</span> <span class="o">=</span> <span class="p">[</span><span class="n">mad</span><span class="p">(</span><span class="n">sample_set</span><span class="p">)</span>              <span class="k">for</span> <span class="n">sample_set</span> <span class="ow">in</span> <span class="n">sets_of_samples</span><span class="p">]</span>
+    
+    <span class="n">std_efficiency</span> <span class="o">=</span> <span class="n">get_efficiency</span><span class="p">(</span><span class="n">stds</span><span class="p">)</span>
+    <span class="n">mad_efficiency</span> <span class="o">=</span> <span class="n">get_efficiency</span><span class="p">(</span><span class="n">mads</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">std_efficiency</span> <span class="o">/</span> <span class="n">mad_efficiency</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="efficiency-for-a-normal-distribution">
+<h2>Efficiency for a normal distribution<a class="headerlink" href="#efficiency-for-a-normal-distribution" title="Permalink to this headline">¶</a></h2>
+<p>The efficiency has been analytically found for the Gaussian case (normal distribution) to be 0.875. This efficiency should be replicated in the function <code class="docutils literal notranslate"><span class="pre">get_efficiency_sample</span></code> using the default parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Analytical relative efficiency STD / MAD: 0.875</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+    <span class="s2">&quot;Sampled relative efficiency STD / MAD: </span><span class="si">%0.5s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">get_efficiency_sample</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Analytical relative efficiency STD / MAD: 0.875
+Sampled relative efficiency STD / MAD: 0.874
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="efficiency-for-progressively-fatter-tail-distributions">
+<h2>Efficiency for progressively fatter tail distributions<a class="headerlink" href="#efficiency-for-progressively-fatter-tail-distributions" title="Permalink to this headline">¶</a></h2>
+<p>Next, we would like to see how the efficiency changes when we sample from fatter and fatter-tailed distributions. The function <code class="docutils literal notranslate"><span class="pre">two_norms</span></code> samples from such a fat-tailed distribution much like the one in the notebook <code class="docutils literal notranslate"><span class="pre">1-mildly-fat-tails</span></code>. In summary, it takes as a parameter <span class="math notranslate nohighlight">\(a\)</span> where the larger the value the fatter the tails. For fat tails, MAD is considerably more efficient.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Efficiency as we occasionally sample from a higher STD normal distributon.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span> <span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span> <span class="p">]</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="n">efficiencies</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_efficiency_sample</span><span class="p">(</span><span class="n">a_</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">a_</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">efficiencies</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Efficiency STD/MAD&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_12560</span><span class="o">/</span><span class="mf">1383391333.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">efficiencies</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_efficiency_sample</span><span class="p">(</span><span class="n">a_</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">a_</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">efficiencies</span><span class="p">)</span>
+
+<span class="nn">~\AppData\Local\Temp/ipykernel_12560/1383391333.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">efficiencies</span> <span class="o">=</span> <span class="p">[</span><span class="n">get_efficiency_sample</span><span class="p">(</span><span class="n">a_</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">a_</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">efficiencies</span><span class="p">)</span>
+
+<span class="nn">~\AppData\Local\Temp/ipykernel_12560/1018549907.py</span> in <span class="ni">get_efficiency_sample</span><span class="nt">(a, p)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> 
+<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">stds</span> <span class="o">=</span> <span class="p">[</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">tstd</span><span class="p">(</span><span class="n">sample_set</span><span class="p">)</span> <span class="k">for</span> <span class="n">sample_set</span> <span class="ow">in</span> <span class="n">sets_of_samples</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">mads</span> <span class="o">=</span> <span class="p">[</span><span class="n">mad</span><span class="p">(</span><span class="n">sample_set</span><span class="p">)</span>              <span class="k">for</span> <span class="n">sample_set</span> <span class="ow">in</span> <span class="n">sets_of_samples</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> 
+<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">std_efficiency</span> <span class="o">=</span> <span class="n">get_efficiency</span><span class="p">(</span><span class="n">stds</span><span class="p">)</span>
+
+<span class="nn">~\AppData\Local\Temp/ipykernel_12560/1018549907.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> 
+<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">stds</span> <span class="o">=</span> <span class="p">[</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">tstd</span><span class="p">(</span><span class="n">sample_set</span><span class="p">)</span> <span class="k">for</span> <span class="n">sample_set</span> <span class="ow">in</span> <span class="n">sets_of_samples</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">54</span>     <span class="n">mads</span> <span class="o">=</span> <span class="p">[</span><span class="n">mad</span><span class="p">(</span><span class="n">sample_set</span><span class="p">)</span>              <span class="k">for</span> <span class="n">sample_set</span> <span class="ow">in</span> <span class="n">sets_of_samples</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> 
+<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="n">std_efficiency</span> <span class="o">=</span> <span class="n">get_efficiency</span><span class="p">(</span><span class="n">stds</span><span class="p">)</span>
+
+<span class="nn">~\AppData\Local\Temp/ipykernel_12560/1018549907.py</span> in <span class="ni">mad</span><span class="nt">(data)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">mad</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">absolute_deviations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">mean</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\numpy\core\fromnumeric.py</span> in <span class="ni">mean</span><span class="nt">(a, axis, dtype, out, keepdims, where)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3417</span>             <span class="k">return</span> <span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3418</span> 
+<span class="ne">-&gt; </span><span class="mi">3419</span>     <span class="k">return</span> <span class="n">_methods</span><span class="o">.</span><span class="n">_mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3420</span>                           <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3421</span> 
+
+<span class="nn">~\anaconda3\lib\site-packages\numpy\core\_methods.py</span> in <span class="ni">_mean</span><span class="nt">(a, axis, dtype, out, keepdims, where)</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span>             <span class="n">is_float16_result</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span> 
+<span class="ne">--&gt; </span><span class="mi">178</span>     <span class="n">ret</span> <span class="o">=</span> <span class="n">umr_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">mu</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span>         <span class="n">ret</span> <span class="o">=</span> <span class="n">um</span><span class="o">.</span><span class="n">true_divide</span><span class="p">(</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="1-mildly-fat-tails.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Mildly fat tails</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="3-central-limit-theorem.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Central limit theorem</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Alovya Chowdhury<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
