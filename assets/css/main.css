@@ -2934,7 +2934,7 @@ input, select, textarea {
 		}
 
 		header > h1 + p {
-			font-size: 1.1rem;
+			font-size: 1.4rem;
 			margin-top: -0.5rem;
 			line-height: 2;
 		}
@@ -3320,7 +3320,7 @@ input, select, textarea {
 		cursor: default;
 		text-align: center;
 		z-index: 1;
-		min-height: 100vh;
+		min-height: 50vh;
 	}
 
 		#intro input, #intro select, #intro textarea {
