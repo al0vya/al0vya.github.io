@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a computational researcher and a research software engineer: I like to follow good practices for software development. My PhD is about "irregular" parallel computing on GPUs, using CUDA, C++ and Python to numerically solve partial differential equations on adaptive meshes for tsunami modelling. I am a GPU computing/CUDA specialist.
+I am a computational researcher and a research software engineer: I like to follow software development best practices where appropriate. My PhD is about "irregular" parallel computing on GPUs, using CUDA, C++ and Python to numerically solve partial differential equations on adaptive meshes for tsunami modelling. I am a GPU computing/CUDA specialist.
 
 Before my PhD, I worked in venture capital, but I did some quant finance projects there too -- about webscraping, "fat-tailed" option pricing and algorithmic backtesting. My current goal is to learn data analysis, with a very long-term aim of exploring some of the topics in "Statistical Consequences of Fat Tails".
 
